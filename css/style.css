@@ -1,0 +1,112 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: Arial, Tahoma, sans-serif;
+    background-color: rgba(247, 235, 134, 0.5);
+}
+.info {
+    max-width: 1080px;
+    width: 100%;
+    margin: 20px auto 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px #2196f3 solid;
+    padding: 20px;
+    font-size: 24px;
+}
+.game-container {
+    display: flex;
+    max-width: 1100px;
+    width: 100%;
+    flex-wrap: wrap;
+    margin: 20px auto;
+}
+.game-container .game-block {
+    height: 140px;
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    position: relative;
+    flex: 1 0 140px;
+    margin: 0 10px 20px;
+}
+.game-container .game-block .front{
+    background-color: #333;
+    line-height: 140px;
+}
+.game-container.no-clicking{
+    pointer-events: none;
+} 
+.game-container .game-block .front::before {
+    content: '🤔';
+    color: #fff;
+    font-size: 90px;
+    font-weight: bold;
+}
+.game-container .game-block .back{
+    background-color: #607088;
+    transform: rotateY(180deg);
+}
+.game-container .game-block .back img {
+    width: 95px;
+    height: 95px;
+    margin-top: 20px;
+}
+.game-container .game-block .face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    backface-visibility: hidden;
+    border: 5px solid #2196f3;
+}
+.game-container .game-block.is-flipped,
+.game-container .game-block.matched {
+    transform: rotateY(180deg);
+    pointer-events: none;
+}
+.debut {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(80, 173, 227, 0.83);
+    left: 0;
+    top: 0;
+    z-index: 2;
+} 
+.debut span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(136 136 124);
+    padding: 10px;
+    width: 400px;
+    border-radius: 10px;
+    box-shadow: 0.1rem 0.3rem 2.1rem 0 rgb(233 235 135);
+    text-align: center;
+    font-weight: 700;
+    font-size: 25px;
+    color: white;
+    cursor: pointer;
+    line-height: 2.5;
+    transition: ease-in-out .5s;
+}
+.debut span:hover {
+    background-color: rgb(2, 52, 64);
+}
+.player {
+    display: flex;
+    margin: 20px;
+    gap: 10px;
+}
+footer {
+    background-color: gray;
+    text-align: center;
+    padding: 29px 0;
+    font-size: 19px;
+}
